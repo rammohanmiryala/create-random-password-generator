@@ -7,10 +7,12 @@ var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var symbol = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "\"," ^ ",_", "{", "|", "}", "~"]
 
+// passwordtext = querySelector('#password')
+// passwordtext.value = password.value;
 
 function writePassword() {
   // takeing the length of the password
-  var passwordLength = window.prompt("select characters between 8 to 128 ")
+  var passwordLength = window.prompt("select length between 8 to 128 ")
   if (passwordLength < 8) {
     window.alert(" charecters are not in between 8 to 128")
   } else if (passwordLength > 128) {
@@ -52,14 +54,11 @@ function writePassword() {
 
       var password = "";
       for (i = 1; i <= passwordLength; i++) {
-        var index = Math.floor(Math.random() * availablechars.length + 1);
-        password = password + availablechars.charAt(index);
+        var index = Math.floor(Math.random() * availablechars.length);
+        password += availablechars[index];
       }
     }
   }
 }
-document.getElementById("password").value = password;
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
